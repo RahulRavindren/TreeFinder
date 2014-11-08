@@ -15,7 +15,7 @@ class FindTree(App,Camera):
      #       cambtn.bind(on_press=CameraWidget.onpress(cam))
 
             camwidget = Widget()
-            cam = Camera(resolution=(640,480) ,size=(500,500))
+            cam = Camera(resolution=(640,480))
             cam.play = True
             camwidget.add_widget(cam)
             return camwidget
