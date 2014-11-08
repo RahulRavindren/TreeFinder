@@ -3,24 +3,25 @@ from kivy.app import App
 from kivy.uix.button import Button
 from kivy.core.window import Window
 from kivy.uix.camera import *
-class CameraWidget(Camera,Widget):
-    def onpress(self,Object):
-        camp.play = true
+from kivy.uix.modalview import *
+
+# class CameraWidget(Camera,Widget):
+#     def onpress(self,object):
+
+class FindTree(App):
+
+    def display(self,instance):
+        x = instance
+        cam = Camera(play=True)
+        x.add_widget(cam)
 
 
-
-class FindTree(App,Camera):
-        def build(self):
-            cambtn = Button(text='click')
-     #       cambtn.bind(on_press=CameraWidget.onpress(cam))
-
-            camwidget = Widget()
-            cam = Camera(resolution=(640,480))
-            cam.play = True
-            camwidget.add_widget(cam)
-            return camwidget
-
-
+    def build(self):
+        camwidget = Widget()
+        cambtn=Button(text='click',size_hint=(0.1,0.1),pos_hint={'x':1,'y':1})
+        camwidget.add_widget(cambtn)
+        cambtn.bind(on_press=self.display)
+        return camwidget
 
 
 if __name__ == '__main__':
